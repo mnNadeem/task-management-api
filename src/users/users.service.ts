@@ -27,9 +27,7 @@ export class UsersService {
       }
 
       const userToCreateData = {
-        name: createUserDto.name,
-        email: createUserDto.email,
-        roleId: createUserDto.roleId,
+        ...createUserDto,
         password: await bcrypt.hash(createUserDto.password, 10),
       };
 
@@ -59,7 +57,12 @@ export class UsersService {
   }
 
   async findOneByEmail(email: string) {
-    return this.userRepository.findOneBy({ email });
+    return this.userRepository.findOne({
+      where: { email },
+      relations: {
+        role: true,
+      },
+    });
   }
 
   async findAll(): Promise<User[]> {

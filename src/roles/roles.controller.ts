@@ -12,7 +12,6 @@ import { ApiTags, ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger';
 import { RolesService } from './roles.service';
 import { UpdateRoleDto } from './dto/update-role.dto';
 import { CreateRoleDto } from './dto/create-role.dto';
-import { Role } from './entities/role.entity';
 import { RoleResponseDto } from './dto/role-response.dto';
 
 @ApiTags('Roles')

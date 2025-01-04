@@ -8,6 +8,8 @@ import { Role } from './roles/entities/role.entity';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { RolesModule } from './roles/roles.module';
+import { Task } from './tasks/entities/task.entity';
+import { TaskModule } from './tasks/tasks.module';
 
 @Module({
   imports: [
@@ -22,7 +24,7 @@ import { RolesModule } from './roles/roles.module';
         username: configService.get('POSTGRES_USER'),
         password: configService.get('POSTGRES_PASSWORD'),
         database: configService.get('POSTGRES_DB'),
-        entities: [User, Role],
+        entities: [User, Role, Task],
         synchronize: true,
         autoLoadEntities: true,
       }),
@@ -30,7 +32,8 @@ import { RolesModule } from './roles/roles.module';
     }),
     AuthModule,
     UsersModule,
-    RolesModule
+    RolesModule,
+    TaskModule,
   ],
   controllers: [AppController],
   providers: [AppService],

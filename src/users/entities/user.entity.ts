@@ -1,4 +1,5 @@
 import { Role } from 'src/roles/entities/role.entity';
+import { Task } from 'src/tasks/entities/task.entity';
 import {
   Entity,
   Column,
@@ -8,6 +9,7 @@ import {
   UpdateDateColumn,
   ManyToOne,
   JoinColumn,
+  OneToMany,
 } from 'typeorm';
 
 @Entity()
@@ -30,6 +32,9 @@ export class User {
 
   @Column({ name: 'role_id' })
   roleId: number;
+
+  @OneToMany(() => Task, (task) => task.user)
+  tasks: Task[];
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;

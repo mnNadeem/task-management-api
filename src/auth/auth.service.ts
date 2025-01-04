@@ -37,6 +37,7 @@ export class AuthService {
     const accessTokenData = {
       id: user.id,
       email: user.email,
+      role: user.role.roleName
     };
 
     return {

@@ -16,10 +16,10 @@ export class RolesService {
 
   async create(createRoleDto: CreateRoleDto): Promise<RoleResponseDto> {
     try {
-      const role = await this.findOneByRole(createRoleDto.role);
+      const role = await this.findOneByRole(createRoleDto.roleName);
       if (role) {
         throw new HttpException(
-          `Role ${createRoleDto.role} already exists`,
+          `Role ${createRoleDto.roleName} already exists`,
           HttpStatus.BAD_REQUEST,
         );
       }
@@ -36,7 +36,7 @@ export class RolesService {
 
   findAll(): Promise<RoleResponseDto[]> {
     return this.roleRepository.find({
-      select: { id: true, role: true, description: true },
+      select: { id: true, roleName: true, description: true },
     });
   }
 
@@ -44,7 +44,7 @@ export class RolesService {
     try {
       const role = await this.roleRepository.findOne({
         where: { id },
-        select: { id: true, role: true, description: true },
+        select: { id: true, roleName: true, description: true },
       });
 
       return role;
@@ -55,7 +55,7 @@ export class RolesService {
 
   async findOneByRole(role: ERole) {
     try {
-      const newRole = await this.roleRepository.findOneBy({ role });
+      const newRole = await this.roleRepository.findOneBy({ roleName: role });
       return newRole;
     } catch (error) {
       throw error;

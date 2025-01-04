@@ -13,8 +13,8 @@ export class Role {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true })
-  role: ERole;
+  @Column({ type: 'enum', enum: ERole, unique: true })
+  roleName: ERole;
 
   @Column({ nullable: true })
   description?: string;

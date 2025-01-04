@@ -10,7 +10,7 @@ export class CreateRoleDto {
   })
   @IsNotEmpty()
   @IsEnum(ERole)
-  role: ERole;
+  roleName: ERole;
 
   @ApiProperty({
     description: 'Description of the role',

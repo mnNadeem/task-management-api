@@ -10,7 +10,7 @@ export class RoleResponseDto {
     enum: ERole,
     example: ERole.USER,
   })
-  role: ERole;
+  roleName: ERole;
 
   @ApiProperty({
     description: 'A brief description of the role',
