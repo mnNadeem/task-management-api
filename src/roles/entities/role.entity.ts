@@ -20,7 +20,7 @@ export class Role {
   description?: string;
 
   @OneToMany(() => User, (user) => user.role)
-  users: User[];
+  users?: User[];
 
   @DeleteDateColumn({ name: 'created_at' })
   createdAt?: Date;

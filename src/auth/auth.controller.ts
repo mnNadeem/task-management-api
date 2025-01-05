@@ -10,9 +10,4 @@ export class AuthController {
   login(@Body() loginDto: LoginDto) {
     return this.authService.login(loginDto);
   }
-
-  // @Post('forgot-password')
-  // async forgotPassword(@Body() body: { email: string }) {
-  //   return this.authService.forgotPassword(body.email);
-  // }
 }

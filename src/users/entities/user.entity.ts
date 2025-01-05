@@ -28,19 +28,19 @@ export class User {
 
   @ManyToOne(() => Role, (role) => role.users, { eager: true })
   @JoinColumn({ name: 'role_id' })
-  role: Role;
+  role?: Role;
 
   @Column({ name: 'role_id' })
   roleId: number;
 
   @OneToMany(() => Task, (task) => task.user)
-  tasks: Task[];
+  tasks?: Task[];
 
   @CreateDateColumn({ name: 'created_at' })
-  createdAt: Date;
+  createdAt?: Date;
 
   @UpdateDateColumn({ name: 'updated_at' })
-  updatedAt: Date;
+  updatedAt?: Date;
 
   @DeleteDateColumn({ name: 'deleted_at' })
   deletedAt?: Date;

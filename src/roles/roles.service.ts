@@ -26,9 +26,7 @@ export class RolesService {
       const newRole = this.roleRepository.create(createRoleDto);
       const savedRole = await this.roleRepository.save(newRole);
 
-      if (savedRole.id) {
-        return await this.findOne(savedRole.id);
-      }
+      return savedRole;
     } catch (error) {
       throw error;
     }

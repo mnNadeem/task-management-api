@@ -18,7 +18,6 @@ export class AuthenticationGuard implements CanActivate {
         return false;
       }
 
-      console.log(authHeader)
       const [bearer, token] = authHeader.split(' ');
       if (bearer !== 'Bearer' || !token) {
         return false;

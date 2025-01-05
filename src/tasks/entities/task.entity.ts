@@ -20,7 +20,7 @@ export class Task {
   status: ETaskStatus;
 
   @ManyToOne(() => User, (user) => user.tasks)
-  user: User;
+  user?: User;
 
   @Column({ name: 'user_id', nullable: true })
   userId: number;
