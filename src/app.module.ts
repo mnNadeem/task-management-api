@@ -10,6 +10,7 @@ import { UsersModule } from './users/users.module';
 import { RolesModule } from './roles/roles.module';
 import { Task } from './tasks/entities/task.entity';
 import { TaskModule } from './tasks/tasks.module';
+import { TaskGateway } from './task.gateway';
 
 @Module({
   imports: [
@@ -36,6 +37,6 @@ import { TaskModule } from './tasks/tasks.module';
     TaskModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, TaskGateway],
 })
 export class AppModule {}

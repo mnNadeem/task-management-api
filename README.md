@@ -71,3 +71,7 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+
+## Deployment to AWS using ECS
+
+To deploy the application on AWS ECS, first create an ECS cluster and an ECR repository. Push your Docker images to the ECR registry to AWS. Then, create an ECS task definition referencing the ECR image and configure necessary ports and environment variables. Launch an ECS service using this task definition, ensuring the security group allows traffic on the required ports (e.g., 3000). Optionally, set up an Application Load Balancer for traffic distribution and monitor the deployment using AWS CloudWatch.

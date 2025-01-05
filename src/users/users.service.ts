@@ -47,9 +47,11 @@ export class UsersService {
           role: true,
         },
       });
+
       if (!user) {
         throw new HttpException('User not found', HttpStatus.NOT_FOUND);
       }
+      
       return user;
     } catch (error) {
       throw error;
